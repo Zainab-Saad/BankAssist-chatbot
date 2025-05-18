@@ -23,6 +23,21 @@ document.addEventListener('DOMContentLoaded', function() {
         return item;
     });
 
+    function displayFormattedResponse(response) {
+    // Convert bullet points to HTML
+    const formattedText = response
+        .replace(/\n/g, '<br>')
+        .replace(/\•/g, '•')
+        .replace(/\: /g, ':<br> - ');
+    
+    return `
+        <div class="bank-response">
+            <div class="response-header">Bank Policy Information</div>
+            <div class="response-content">${formattedText}</div>
+        </div>
+    `;
+}
+
     
     // Display query history
     renderQueryHistory();
@@ -94,6 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 addMessageToChat(data.response, 'bot');
                 addToQueryHistory(message, data.response);
             }
+
         })
         .catch(error => {
             console.error("6. Fetch error:", error); // Debug log
