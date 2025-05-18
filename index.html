@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Customer Service</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1><i class="fas fa-university"></i> SEECS Bank Assistant</h1>
+            <p>Your 24/7 banking support</p>
+        </header>
+        
+        <div class="chat-container">
+            <div class="chat-history" id="chatHistory">
+                <!-- Messages will appear here -->
+                <div class="welcome-message">
+                    <p>Hello! I'm your SEECS Bank assistant. How can I help you today?</p>
+                    <!-- <p>You can ask me about:</p>
+                    <ul>
+                        <li>Account balances</li>
+                        <li>Transaction history</li>
+                        <li>Loan applications</li>
+                        <li>Credit card services</li>
+                        <li>And more...</li>
+                    </ul> -->
+                </div>
+            </div>
+            
+            <div class="input-area">
+                <textarea id="userInput" placeholder="Type your banking question here..." rows="2"></textarea>
+                <button id="sendButton"><i class="fas fa-paper-plane"></i> Send</button>
+            </div>
+            
+            <div class="upload-area">
+                <input type="file" id="documentUpload" accept=".txt,.pdf,.doc,.docx,.csv,.json">
+                <button id="uploadButton"><i class="fas fa-upload"></i> Upload Document</button>
+                <div id="uploadStatus"></div>
+            </div>
+        </div>
+        
+        <div class="query-history">
+            <h3><i class="fas fa-history"></i> Recent Queries</h3>
+            <div class="history-list" id="historyList">
+                <!-- Query history will appear here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
