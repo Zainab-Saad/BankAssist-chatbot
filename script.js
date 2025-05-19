@@ -227,19 +227,38 @@ document.addEventListener('DOMContentLoaded', function() {
         const file = event.target.files[0];
         if (!file) return;
         
+        // Validate file type
+        const allowedTypes = [
+            'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+            'application/vnd.ms-excel'
+        ];
+        const fileExtension = file.name.split('.').pop().toLowerCase();
+        
+        if (!allowedTypes.includes(file.type) && !['xlsx', 'xls'].includes(fileExtension)) {
+            uploadStatus.textContent = 'Error: Only Excel files (.xlsx, .xls) are allowed';
+            uploadStatus.style.color = 'var(--error-color)';
+            event.target.value = ''; // Clear the invalid file
+            return;
+        }
+        
         uploadStatus.textContent = 'Uploading...';
         
         const formData = new FormData();
-        formData.append('document', file);
+        formData.append('file', file);  // Changed from 'document' to 'file' to match backend
         
-        fetch('/api/upload', {
+        fetch('http://127.0.0.1:5000/api/upload', {
             method: 'POST',
             body: formData,
         })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Upload failed');
+            }
+            return response.json();
+        })
         .then(data => {
             if (data.success) {
-                uploadStatus.textContent = 'Document uploaded successfully!';
+                uploadStatus.textContent = 'Excel file uploaded successfully!';
                 uploadStatus.style.color = 'var(--success-color)';
                 
                 // Clear status after 3 seconds
@@ -252,7 +271,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         })
         .catch(error => {
-            uploadStatus.textContent = 'Error uploading document';
+            uploadStatus.textContent = 'Error uploading Excel file';
             uploadStatus.style.color = 'var(--error-color)';
             console.error('Upload error:', error);
         });

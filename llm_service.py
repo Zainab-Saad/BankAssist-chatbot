@@ -29,13 +29,19 @@ class LLMService:
             quantization_config=quant_config, 
             device_map="auto"
         )
+
+        system_prompt = ("You are a helpful bank assistant. "
+                    "Answer user questions clearly and factually based only on the given context. "
+                    "Do not add greetings, sign-offs, or suggestions. "
+                    "Do not mention context or sources. Just answer the question directly."
+            )
         
         Settings.llm = HuggingFaceLLM(
             model=self.model,
             tokenizer=self.tokenizer,
             context_window=4096,
             max_new_tokens=512,
-            system_prompt="You are a helpful bank assistant...",
+            system_prompt=system_prompt,
             generate_kwargs={"temperature": 0.3, "do_sample": False},
             model_kwargs={"torch_dtype": torch.float16}
         )
