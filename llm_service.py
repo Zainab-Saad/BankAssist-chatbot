@@ -58,8 +58,4 @@ class LLMService:
     def query(self, question):
         if not self.query_engine:
             raise ValueError("Index not initialized")
-        retrieved = self.query_engine.retrieve(question)
-        response = self.query_engine.query(question)
-
-        print('===============================retrieved', retrieved)
-        return str(response)
+        return str(self.query_engine.query(question))
