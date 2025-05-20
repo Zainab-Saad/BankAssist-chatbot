@@ -31,11 +31,12 @@ class LLMService:
         )
 
         system_prompt = ("You are a helpful bank assistant. "
-                    "Answer user questions clearly and factually based only on the given context. "
-                    "Do not add greetings, sign-offs, or suggestions. "
-                    "Do not mention context or sources. Just answer the question directly."
-            )
-        
+        "Answer user questions clearly and factually based only on the given context. "
+        "Do not add greetings, sign-offs, or suggestions. "
+        "Do not mention context or sources. Just answer the question directly."
+)
+       
+                    
         Settings.llm = HuggingFaceLLM(
             model=self.model,
             tokenizer=self.tokenizer,
@@ -57,4 +58,8 @@ class LLMService:
     def query(self, question):
         if not self.query_engine:
             raise ValueError("Index not initialized")
-        return str(self.query_engine.query(question))
+        retrieved = self.query_engine.retrieve(question)
+        response = self.query_engine.query(question)
+
+        print('===============================retrieved', retrieved)
+        return str(response)

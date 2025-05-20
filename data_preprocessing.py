@@ -116,18 +116,14 @@ source: "{src}"
 """
 
 def append_excel_to_markdown(excel_file_path, markdown_path="bank_qna_md.md"):
-    print('====================inside append_excel_to_markdown')
     all_sheets = pd.read_excel(excel_file_path, sheet_name=None, header=None)
     appended = False
-    print('========================1')
     with open(markdown_path, "a", encoding="utf-8") as f:
         print('============================2')
         for sheet_name, df in all_sheets.items():
             if sheet_name in ["Sheet3", "Sheet1", "Main"]:
                 continue
-            print('==========================3')
             content = process_sheet(sheet_name, df, excel_file_path)
-            print('============================4')
             if content:
                 f.write("\n" + content + "\n")
                 appended = True
@@ -136,3 +132,30 @@ def append_excel_to_markdown(excel_file_path, markdown_path="bank_qna_md.md"):
         print(f"[INFO] New content from '{excel_file_path}' appended to '{markdown_path}'")
     else:
         print(f"[WARN] No new content found in '{excel_file_path}'")
+
+def json_to_markdown(json_data, output_file, source_path):
+    with open(output_file, "a", encoding="utf-8") as f:
+        for category_data in json_data.get("categories", []):
+            category = category_data.get("category", "N/A")
+            questions = category_data.get("questions", [])
+
+            for qa in questions:
+                question = qa.get("question", "").strip()
+                answer = qa.get("answer", "").strip()
+
+                f.write('---\n')
+                f.write(f'question: "{question}"\n')
+                f.write(f'source: "{source_path}"\n')
+                f.write('---\n\n')
+                f.write('**Answer:**  \n')
+                
+                for line in answer.split("\n"):
+                    if line.strip() == "":
+                        f.write("\n")
+                    else:
+                        f.write(f"- {line.strip()}\n")
+
+                f.write('\n---\n\n')
+
+    print(f"Markdown file written to {output_file}")
+

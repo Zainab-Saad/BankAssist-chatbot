@@ -257,7 +257,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return response.json();
         })
         .then(data => {
-            if (data.success) {
+            if (data.status == "success") {
                 uploadStatus.textContent = 'Excel file uploaded successfully!';
                 uploadStatus.style.color = 'var(--success-color)';
                 

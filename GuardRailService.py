@@ -20,7 +20,7 @@ class GuardRailService:
     "S13": "Elections",
     "S14": "Code Interpreter Abuse"
     }
-    self.client =  Groq(api_key="GROQ_API_KEY")
+    self.client =  Groq(api_key="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") #api_key="GROQ_API_KEY"
     self.model="llama-guard-3-8b"
 
   def guardRailCheck(self, query:str):

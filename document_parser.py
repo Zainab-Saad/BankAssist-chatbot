@@ -7,23 +7,24 @@ def parse_markdown(filepath):
 
     pattern = re.compile(
         r'---\s*'                                     
-        r'sheet_name:\s*"(.*?)"\s*'                   
+        r'(?:sheet_name:\s*"(.*?)"\s*)?'              
         r'question:\s*"(.*?)"\s*'                     
         r'source:\s*"(.*?)"\s*---\s*'                 
-        r'\*\*Answer:\*\*\s*(.*?)'                    
-        r'(?=---|\Z)',                                
+        r'\*\*Answer:\*\*\s*(.*?)'                   
+        r'(?=---|\Z)',                               
         re.DOTALL
     )
 
-    return [
-        {
-            'sheet_name': match.group(1).strip(),
-            'question': match.group(2).strip(),
-            'source': match.group(3).strip(),
-            'answer': match.group(4).strip()
-        }
-        for match in pattern.finditer(content)
-    ]
+    qa_list = []
+    for match in pattern.finditer(content):
+        sheet_name, question, source, answer = match.groups()
+        qa_list.append({
+            'sheet_name': (sheet_name.strip() if sheet_name else None),
+            'question': question.strip(),
+            'source': source.strip(),
+            'answer': answer.strip()
+        })
+    return qa_list
 
 def convert_to_documents(qa_list):
     return [

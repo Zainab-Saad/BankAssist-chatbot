@@ -1,9 +1,11 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+from GuardRailService import GuardRailService
 from llm_service import LLMService
 from document_parser import parse_markdown, convert_to_documents
-from excel_to_md import process_sheet, append_excel_to_markdown
+from data_preprocessing import process_sheet, append_excel_to_markdown, json_to_markdown
 import os
+import json
 import pandas as pd
 from werkzeug.utils import secure_filename
 
@@ -11,10 +13,14 @@ app = Flask(__name__)
 CORS(app)
 
 llm_service = LLMService()
+guardRail_service = GuardRailService()
 
 def initialize_app():
     excel_file = "/home/zainab/Documents/NUST/Semester 8/Large Language Models sem 8/Project/Code/BankAssist-LLM/data/NUST Bank-Product-Knowledge.xlsx"
     output_file = "bank_qna_md.md"
+
+    if os.path.exists(output_file):
+        os.remove(output_file)
 
     all_sheets = pd.read_excel(excel_file, sheet_name=None, header=None)
 
@@ -27,7 +33,14 @@ def initialize_app():
             if content:
                 f.write(content + "\n")
 
+
+    input_json_path = "/home/zainab/Documents/NUST/Semester 8/Large Language Models sem 8/Project/Code/BankAssist-chatbot/data/Dataset: funds transfer app features faqFile.json"
+    with open(input_json_path, "r", encoding="utf-8") as file:
+        data = json.load(file)
+
+    json_to_markdown(data, output_file, source_path=input_json_path)
     print(f"Markdown output saved to {output_file}")
+
     qa_list = parse_markdown(output_file)
     documents = convert_to_documents(qa_list)
     llm_service.initialize_index(documents)
@@ -42,8 +55,25 @@ def chat():
             return jsonify({'error': 'Invalid request'}), 400
         
         question = data['message']
-        response = llm_service.query(question)
+
+        query_check_res = guardRail_service.guardRailCheck(query=question)
+        if query_check_res["isUnsafe"]:
+            hazard = query_check_res["MLCommons_taxonomy"]+":"+query_check_res["hazard"]
+            return jsonify({
+            'response': f"I'm sorry, but I cannot answer this as it involves content related to {hazard.split(':')[1]} that may be inappropriate or unethical.",
+            'status': 'Fail'
+            })
         
+        response = llm_service.query(question)
+
+        # response_check_res = guardRail_service.guardRailCheck(query=response)
+        # if response_check_res["isUnsafe"]:
+        #     hazard = response["MLCommons_taxonomy"]+":"+response_check_res["hazard"]
+        #     return jsonify({
+        #     'response': f"I'm sorry, but I cannot answer this as it involves content related to {hazard.split(':')[1]} that may be inappropriate or unethical.",
+        #     'status': 'Fail'
+        #     })
+            
         return jsonify({
             'response': response,
             'status': 'success'
@@ -55,14 +85,11 @@ def chat():
 @app.route('/api/upload', methods=['POST'])
 def upload_file():
     """Handle file uploads and update RAG pipeline"""
-    print('======================================request files', request.files)
     if 'file' not in request.files:
         return jsonify({'error': 'No file part'}), 400
     
     file = request.files['file']
-    print('=====================================file', file, type(file))
-    if file.filename == '':
-        print('======================================file name', file.filename)
+    
     if 'file' not in request.files:
         return jsonify({'error': 'No selected file'}), 400
     
@@ -75,9 +102,7 @@ def upload_file():
             append_excel_to_markdown(filepath, "bank_qna_md.md")
 
             qa_list = parse_markdown("bank_qna_md.md")
-            print('==============================qa_list', qa_list)
             documents = convert_to_documents(qa_list)
-            print('==============================documents', documents)
             
             llm_service.initialize_index(documents)
             

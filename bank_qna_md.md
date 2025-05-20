@@ -3661,3 +3661,536 @@ For more information please go through the below link:
 
 ---
 
+---
+question: "Is there a limit on the amount I can transfer through the mobile banking app?"
+source: "/home/zainab/Documents/NUST/Semester 8/Large Language Models sem 8/Project/Code/BankAssist-chatbot/data/Dataset: funds transfer app features faqFile.json"
+---
+
+**Answer:**  
+- Yes, 1 million is the current daily limit. Transfer limits vary based on your account type. Check the “Limits” section in the app for specifics on daily transfer limits.
+
+---
+
+---
+question: "How can I change limit of funds transfer?"
+source: "/home/zainab/Documents/NUST/Semester 8/Large Language Models sem 8/Project/Code/BankAssist-chatbot/data/Dataset: funds transfer app features faqFile.json"
+---
+
+**Answer:**  
+- To change your funds, transfer limit, go to the “My profile” section and select “Manage Limit” in the app, then select “Change FT/IBFT” limits.
+
+---
+
+---
+question: "How can I add or update beneficiaries/ recipients of mobile banking app for funds transfer?"
+source: "/home/zainab/Documents/NUST/Semester 8/Large Language Models sem 8/Project/Code/BankAssist-chatbot/data/Dataset: funds transfer app features faqFile.json"
+---
+
+**Answer:**  
+- In the app, navigate to the “Transfer Funds” section and select “New Beneficiaries.” Here, you can choose to add a new beneficiary by entering their details or update existing beneficiary information.
+
+---
+
+---
+question: "How do I perform international transactions through mobile app?"
+source: "/home/zainab/Documents/NUST/Semester 8/Large Language Models sem 8/Project/Code/BankAssist-chatbot/data/Dataset: funds transfer app features faqFile.json"
+---
+
+**Answer:**  
+- One can enable international transactions by tapping on card management, select manage debit card and choose “international tranx activation” option.
+
+---
+
+---
+question: "Does the app support contactless payments or digital wallets?"
+source: "/home/zainab/Documents/NUST/Semester 8/Large Language Models sem 8/Project/Code/BankAssist-chatbot/data/Dataset: funds transfer app features faqFile.json"
+---
+
+**Answer:**  
+- For contactless payments NUST Bank has a separate mobile app named as NUST Digital Wallets. Customers can download and perform payments.
+
+---
+
+---
+question: "Can I use the mobile app while I am overseas?"
+source: "/home/zainab/Documents/NUST/Semester 8/Large Language Models sem 8/Project/Code/BankAssist-chatbot/data/Dataset: funds transfer app features faqFile.json"
+---
+
+**Answer:**  
+- Yes, the NUST mobile app can be accessed globally. Ensure you have internet connectivity and your registered mobile number is active for OTPs if required.
+
+---
+
+---
+question: "What should I do if I forget my login password?"
+source: "/home/zainab/Documents/NUST/Semester 8/Large Language Models sem 8/Project/Code/BankAssist-chatbot/data/Dataset: funds transfer app features faqFile.json"
+---
+
+**Answer:**  
+- Tap on 'Forgot Password' on the login screen. Follow the steps to reset your password using your registered mobile number and verification details.
+
+---
+
+---
+question: "Can I reset my MPIN through the app?"
+source: "/home/zainab/Documents/NUST/Semester 8/Large Language Models sem 8/Project/Code/BankAssist-chatbot/data/Dataset: funds transfer app features faqFile.json"
+---
+
+**Answer:**  
+- Yes, after logging into the app, go to 'Profile' → 'Change MPIN' and follow the prompts to reset your MPIN securely.
+
+---
+
+---
+question: "What services are available under Bill Payment option?"
+source: "/home/zainab/Documents/NUST/Semester 8/Large Language Models sem 8/Project/Code/BankAssist-chatbot/data/Dataset: funds transfer app features faqFile.json"
+---
+
+**Answer:**  
+- You can pay utility bills, internet and mobile bills, and government fees using the 'Bill Payment' option in the app.
+
+---
+
+---
+question: "How can I recharge mobile balance or buy top-up?"
+source: "/home/zainab/Documents/NUST/Semester 8/Large Language Models sem 8/Project/Code/BankAssist-chatbot/data/Dataset: funds transfer app features faqFile.json"
+---
+
+**Answer:**  
+- Use the 'Mobile Top-Up' feature. Select your network, enter the mobile number and amount, and confirm with your MPIN.
+
+---
+
+---
+question: "Is biometric login supported in the app?"
+source: "/home/zainab/Documents/NUST/Semester 8/Large Language Models sem 8/Project/Code/BankAssist-chatbot/data/Dataset: funds transfer app features faqFile.json"
+---
+
+**Answer:**  
+- Yes, biometric login is supported. You can enable it under the 'Profile' section by turning on 'Fingerprint Login' for faster and secure access.
+
+---
+
+---
+question: "Can I view my debit card details using the mobile app?"
+source: "/home/zainab/Documents/NUST/Semester 8/Large Language Models sem 8/Project/Code/BankAssist-chatbot/data/Dataset: funds transfer app features faqFile.json"
+---
+
+**Answer:**  
+- You can view basic card details like the card status and activation options. For full card info, please contact the bank for security reasons.
+
+---
+
+---
+question: "How can I report an issue or give feedback within the app?"
+source: "/home/zainab/Documents/NUST/Semester 8/Large Language Models sem 8/Project/Code/BankAssist-chatbot/data/Dataset: funds transfer app features faqFile.json"
+---
+
+**Answer:**  
+- Go to the 'Contact Us' or 'Feedback' section in the app and submit your query or feedback. You can also email support@NUSTbank.com.pk.
+
+---
+
+---
+question: "How can I deactivate or delete my mobile banking account?"
+source: "/home/zainab/Documents/NUST/Semester 8/Large Language Models sem 8/Project/Code/BankAssist-chatbot/data/Dataset: funds transfer app features faqFile.json"
+---
+
+**Answer:**  
+- For security reasons, deactivation or deletion requests must be submitted by calling the helpline at +92 (51) 111 000 494.
+
+---
+
+---
+question: "Is the mobile app available in multiple languages?"
+source: "/home/zainab/Documents/NUST/Semester 8/Large Language Models sem 8/Project/Code/BankAssist-chatbot/data/Dataset: funds transfer app features faqFile.json"
+---
+
+**Answer:**  
+- Currently, the NUST mobile app supports English only. Multilingual support is being considered for future updates.
+
+---
+
+
+---
+sheet_name: "NSA"
+question: "Is NUST Bank offering any account specifically for Women?"
+source: "uploads/rag_update_file.xlsx"
+---
+
+**Answer:**  
+- - Yes! NUST Bank Offers NUST Sahar Account.
+- - Female Individual Resident Pakistanis can open the account offered under NUST Sahar Banking.
+
+---
+
+---
+sheet_name: "NSA"
+question: "What is the account type of NUST Sahar Account?"
+source: "uploads/rag_update_file.xlsx"
+---
+
+**Answer:**  
+- NUST Sahar Deposit suite consists of following variants:
+- 1- NUST Sahar Current Account
+- 2-NUST Sahar Savings Account
+- 3-NUST Sahar Term Deposits
+- 4-NUST Sahar Asaan Current Account
+
+---
+
+---
+sheet_name: "NSA"
+question: "What are the free facilities NUST is offering on NUST Sahar Current Account ?"
+source: "uploads/rag_update_file.xlsx"
+---
+
+**Answer:**  
+- ·        First Cheque Book
+- ·        First Debit Card Issuance*
+- ·        50% Discount on first year Locker Rental (subject to locker availability)
+- .       Bankers Cheque Issuance
+- .       Inter Branch Online Cash Withdrawal/ Deposit (Online)
+- .        Internal Fund Transfer within NUST via branch (Online Transfer)
+- ·        SMS Alerts on all banking Transactions
+- ·       I-Net and Mobile Banking
+- ·        E-statement Facility and much more
+- *Subsequent Charges/Annual Fees would be as per prevailing Schedule of Charges
+
+---
+
+---
+sheet_name: "NSA"
+question: "Can we open this account online?"
+source: "uploads/rag_update_file.xlsx"
+---
+
+**Answer:**  
+- ·        Digital account opening facility available with account opening within 48 hours
+
+---
+
+---
+sheet_name: "NSA"
+question: "Does the bank offer option of Term Deposits with this account."
+source: "uploads/rag_update_file.xlsx"
+---
+
+**Answer:**  
+- ·        Yes, Option to book exclusive NUST Sahar Term Deposits from NUST Sahar Current Account at attractive rates is available.
+
+---
+
+---
+sheet_name: "NSA"
+question: "Is there a Minimum balance requirement for NUST Sahar Current Account"
+source: "uploads/rag_update_file.xlsx"
+---
+
+**Answer:**  
+- ·        No minimum average balance requirement for account maintenance
+
+---
+
+---
+sheet_name: "NSA"
+question: "What is the profit payment system for NUST Sahar Savings Account ?"
+source: "uploads/rag_update_file.xlsx"
+---
+
+**Answer:**  
+- ·        Monthly Profit Payment
+- ·        Profit calculation on Monthly Average Balance
+
+---
+
+---
+sheet_name: "NSA"
+question: "What are the free services offered on NUST Sahar Savings Account?"
+source: "uploads/rag_update_file.xlsx"
+---
+
+**Answer:**  
+- ·        First Debit Card Issuance*
+- ·       SMS Alerts on Digital Transactions
+- ·       I-Net Banking
+- .        Internal Fund Transfer within NUST via branch (Online Transfer)
+- .        Inter Branch Online Cash Withdrawal/ Deposit (Online)
+- ·        E-statement Facility
+- ·        Debit card and Cheque book delivery at customer address & activation via Contact Centre
+- *Subsequent Charges/Annual Fees would be as per prevailing Schedule of Charges
+
+---
+
+---
+sheet_name: "NSA"
+question: "What are the main features of NUST Sahar Term Deposit ?"
+source: "uploads/rag_update_file.xlsx"
+---
+
+**Answer:**  
+- ·        Flexibility to choose from multiple tenure: 1, 3 or 5 Years
+- ·        Investments starts from as low as Rs. 50,000/-
+- ·        Monthly Profit Payment in your NUST Sahar Current Account
+- ·        Roll-over option available
+- Note: Deals to be booked from NUST Sahar Current Account Only
+
+---
+
+---
+sheet_name: "NSA"
+question: "What is the Premature Encashment Penalty on NUST Sahar Term Deposit ?"
+source: "uploads/rag_update_file.xlsx"
+---
+
+**Answer:**  
+- - The encashment of NUST Sahar Term Deposit before maturity will be subject to premature encashment penalty as below:
+- - Principal amount x 1.5% per annum on the remaining period of the Term Deposits
+- (for e.g., deal booked for 5 years matured after 2 years – penalty/charges will be 4.5% x Principal Amount)
+- - Minimum penalty/charges are 1.5% of the principal amount. The penalty amount will be to the extent of profit paid/payable only
+- https://NUSTbank.com/NUSTUploads/uploads/SOC-Conv-English.pdf
+
+---
+
+---
+sheet_name: "NSA"
+question: "What is the initial deposit requirement of NUST Sahar Asaan Current Account?"
+source: "uploads/rag_update_file.xlsx"
+---
+
+**Answer:**  
+- - Rs. 100 only
+
+---
+
+---
+sheet_name: "NSA"
+question: "What are the main features of NUST Sahar Asaan Current Account ?"
+source: "uploads/rag_update_file.xlsx"
+---
+
+**Answer:**  
+- - Simplified Account Opening with single pager Account Opening form & CNIC
+- - Cheque Book Issuance
+- - Free PayPak Debit Card Issuance
+
+---
+
+---
+sheet_name: "NSA"
+question: "Is there any Transaction Limitation for NUST Sahar Asaan Current Account ?"
+source: "uploads/rag_update_file.xlsx"
+---
+
+**Answer:**  
+- - Monthly withdrawal limits up to Rs. 1,000,000
+- - Total Credit Balance Limit of up to Rs. 1,000,000
+- - Cross border (outward) transactions shall not be allowed except in case of international transactions carried out through debit cards
+
+---
+
+---
+sheet_name: "NSA"
+question: "What are the free services offered on NUST Sahar Asaan Current Account ?"
+source: "uploads/rag_update_file.xlsx"
+---
+
+**Answer:**  
+- - Free Inter Branch Online Cash Deposit/Withdrawal (Online)
+- - Free Internal Fund Transfer within NUST via branch (Online Transfer)
+- - Free Banker’s Cheque Issuance
+- - Free I-Net Banking
+- - Free E-statement
+- - Free SMS Alerts on digital transactions
+
+---
+
+
+---
+sheet_name: "NSF"
+question: "Is NUST Bank offering any financing specifically for women owned small and medium enterprises?"
+source: "uploads/rag_update_file.xlsx"
+---
+
+**Answer:**  
+- The Product "NUST Sahar Finance" is based on Refinance and Credit Guarantee Scheme for Women Entrepreneurs objective of this product is to provide financing facilities to women owned enterprises to meet credit needs of their businesses.
+
+---
+
+---
+sheet_name: "NSF"
+question: "What are the purposes for which NUST Sahar Finance can be availed?"
+source: "uploads/rag_update_file.xlsx"
+---
+
+**Answer:**  
+- i. Expansion of existing business
+ii. Set up of new business
+iii.Purchase of stocks/ Working Capital Requirement etc
+
+---
+
+---
+sheet_name: "NSF"
+question: "What is the applicant legal structure of business in order to avail NUST Sahar Finance?"
+source: "uploads/rag_update_file.xlsx"
+---
+
+**Answer:**  
+- Sole Proprietor, Partnership Firm, Private Limited Company, Single Member Company (SMC), Business Individuals (Women Owned)
+
+*In Partnership firm/ Private Limited Company, having 02 partners or directors, minimum 51% shareholder/ CEO should be a a femle who should also be the applicant. If there are more than 02 partners or directors, major share holder should be women , who should also be CEO and applicant
+
+---
+
+---
+sheet_name: "NSF"
+question: "What is the nature of finance in NUST Sahar Finance?"
+source: "uploads/rag_update_file.xlsx"
+---
+
+**Answer:**  
+- i. Long Term Finance
+ii. Short Term Finance/Working Capital
+
+---
+
+---
+sheet_name: "NSF"
+question: "What is the maximum tenure of NUST Sahar Finance?"
+source: "uploads/rag_update_file.xlsx"
+---
+
+**Answer:**  
+- Short Term Finance/Working Capital
+Maximum 3 years with no grace period
+- Long Term Finance
+Maximum 5 years (inclusive of grace period up to 6 months)
+*Markup will be recovered during grace period
+
+---
+
+---
+sheet_name: "NSF"
+question: "Is there any age criteria to avail NUST Sahar Finance?"
+source: "uploads/rag_update_file.xlsx"
+---
+
+**Answer:**  
+- New Business
+Between 20-50 years at the time of application
+- Existing Business
+Between 20-55 years at the time of application
+
+---
+
+---
+sheet_name: "NSF"
+question: "What are the Loan Limits of NUST Sahar Finance?"
+source: "uploads/rag_update_file.xlsx"
+---
+
+**Answer:**  
+- New Business
+Maximum Loan Rs: 3.00 Million
+- Existing Business
+Maximum Loan Rs: 5.00 Million
+
+---
+
+---
+sheet_name: "NSF"
+question: "What is the current Mark-up rate of NUST Sahar Finance?"
+source: "uploads/rag_update_file.xlsx"
+---
+
+**Answer:**  
+- Mark-up Rate of @5% p.a.
+*Markup at 12M Kibor + 4% Per Annum to be charged till refinance claim reimbursed by SBP.
+
+---
+
+---
+sheet_name: "NSF"
+question: "Can applicant avail clean loan in NUST Sahar Finance?"
+source: "uploads/rag_update_file.xlsx"
+---
+
+**Answer:**  
+- Max Rs: 0.70 million can be availed against personal and third party guarantee
+
+---
+
+---
+sheet_name: "NSF"
+question: "Does the bank require any Equity for this scheme?"
+source: "uploads/rag_update_file.xlsx"
+---
+
+**Answer:**  
+- New Business
+20% equity.
+- Existing Business
+No equity, the existing investment in business will be considered as equity
+
+---
+
+---
+sheet_name: "NSF"
+question: "Is there any minimum business age requirement?"
+source: "uploads/rag_update_file.xlsx"
+---
+
+**Answer:**  
+- Existing Business Should be women owned enterprises with Minimum 01 year of business registration
+New Business: Nil
+
+---
+
+---
+sheet_name: "NSF"
+question: "What are the processing charges for NUST Sahar Finance Application?"
+source: "uploads/rag_update_file.xlsx"
+---
+
+**Answer:**  
+| Up to Rs. 0.70 | Rs: 2000/- (Non refundable) |
+| --- | --- |
+| Above Rs. 0.70 and upto Rs. 5 Million | Rs: 3000/- (Non refundable) |
+
+---
+
+---
+sheet_name: "NSF"
+question: "Are there any late payment charges?"
+source: "uploads/rag_update_file.xlsx"
+---
+
+**Answer:**  
+- Rs. 1,000/- per installment
+*In case of delay of installment, commercial rate will be charged on the outstanding principal amount.
+
+---
+
+---
+sheet_name: "NSF"
+question: "What are the service/documentation/legal charges in NUST Sahar Finance?"
+source: "uploads/rag_update_file.xlsx"
+---
+
+**Answer:**  
+- At actual
+
+---
+
+---
+sheet_name: "NSF"
+question: "What are the insurance charges?"
+source: "uploads/rag_update_file.xlsx"
+---
+
+**Answer:**  
+- At actual
+
+---
+
