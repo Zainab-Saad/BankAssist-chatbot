@@ -3,25 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const userInput = document.getElementById('userInput');
     const sendButton = document.getElementById('sendButton');
     const chatHistory = document.getElementById('chatHistory');
-    const historyList = document.getElementById('historyList');
     const documentUpload = document.getElementById('documentUpload');
     const uploadButton = document.getElementById('uploadButton');
     const uploadStatus = document.getElementById('uploadStatus');
-    
-    // Initialize query history from localStorage or create empty array
-    let queryHistory = JSON.parse(localStorage.getItem('bankQueryHistory')) || [];
-
-    // For backward compatibility with old history items that might not have responses
-    queryHistory = queryHistory.map(item => {
-        if (!item.hasOwnProperty('response')) {
-            return {
-                query: item.query,
-                response: "Response not stored in history",
-                timestamp: item.timestamp || new Date().toISOString()
-            };
-        }
-        return item;
-    });
 
     function displayFormattedResponse(response) {
     // Convert bullet points to HTML
@@ -37,10 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     `;
 }
-
-    
-    // Display query history
-    renderQueryHistory();
     
     // Event listeners
     sendButton.addEventListener('click', sendMessage);
@@ -73,10 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Clear input
         userInput.value = '';
-        
-        // Save to history
-        addToQueryHistory(message, "Waiting for response...");
-        
+                
         // Send to backend
         console.log("3. Before fetch"); // Debug log
 
@@ -104,10 +81,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (data.error) {
                 const errorMsg = "Sorry, I'm having trouble answering that right now. Please try again later.";
                 addMessageToChat(errorMsg, 'bot');
-                addToQueryHistory(message, errorMsg);
             } else {
                 addMessageToChat(data.response, 'bot');
-                addToQueryHistory(message, data.response);
             }
 
         })
@@ -147,81 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
             typingIndicator.remove();
         }
     }
-    
-    // Function to add query to history
-    function addToQueryHistory(query, response) {
-        // Add to beginning of array
-        queryHistory.unshift({
-            query: query,
-            response: response,
-            timestamp: new Date().toISOString()
-        });
-        
-        // Keep only last 20 items
-        if (queryHistory.length > 20) {
-            queryHistory.pop();
-        }
-        
-        // Save to localStorage
-        localStorage.setItem('bankQueryHistory', JSON.stringify(queryHistory));
-        
-        // Update display
-        renderQueryHistory();
-    }
-        
-    // Function to render query history
-    // Function to render query history
-    function renderQueryHistory() {
-        historyList.innerHTML = '';
-        
-        if (queryHistory.length === 0) {
-            const emptyMsg = document.createElement('div');
-            emptyMsg.classList.add('history-item');
-            emptyMsg.textContent = 'No recent queries';
-            historyList.appendChild(emptyMsg);
-            return;
-        }
-        
-        queryHistory.forEach((item, index) => {
-            const historyItem = document.createElement('div');
-            historyItem.classList.add('history-item');
             
-            // Create elements for query and response
-            const queryElement = document.createElement('div');
-            queryElement.classList.add('history-query');
-            queryElement.textContent = item.query.length > 50 
-                ? item.query.substring(0, 47) + '...' 
-                : item.query;
-            
-            const responseElement = document.createElement('div');
-            responseElement.classList.add('history-response');
-            responseElement.textContent = item.response.length > 50
-                ? item.response.substring(0, 47) + '...'
-                : item.response;
-            responseElement.style.display = 'none'; // Initially hidden
-            
-            historyItem.appendChild(queryElement);
-            historyItem.appendChild(responseElement);
-            
-            // Click to toggle response visibility
-            historyItem.addEventListener('click', function(e) {
-                // Don't toggle if clicking on a child element that has its own handler
-                if (e.target !== historyItem) return;
-                
-                // Toggle response visibility
-                if (responseElement.style.display === 'none') {
-                    responseElement.style.display = 'block';
-                    historyItem.classList.add('expanded');
-                } else {
-                    responseElement.style.display = 'none';
-                    historyItem.classList.remove('expanded');
-                }
-            });
-            
-            historyList.appendChild(historyItem);
-        });
-    }
-        
     // Function to handle file upload
     function handleFileUpload(event) {
         const file = event.target.files[0];
